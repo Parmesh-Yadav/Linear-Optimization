@@ -1,0 +1,88 @@
+reset; 
+
+var xsa;
+var xsb;
+var xsc;
+var xae;
+var xaf;
+var xba;
+var xbb;
+var xbc;
+
+var xcd;
+var xcg;
+var xch;
+var xdc;
+var xdg;
+var xdh;
+var xed;
+var xee;
+var xei;
+
+var xfa;
+var xfd;
+var xft;
+var xgh;
+var xgi;
+var xgj;
+var xgt;
+var xhg;
+var xhj;
+var xht;
+
+var xij;
+var xit;
+var xjh;
+var xjt;
+
+maximize z : xsa + xsb + xsc;
+
+s.t. c1: 0<=xsa<=11;
+s.t. c2: 0<=xsb <= 15;
+s.t. c3: 0<=xsc <=10;
+s.t. c4: 0<=xae<=18;
+s.t. c5: 0<=xaf <=4;
+s.t. c6: 0<=xba <=3;
+s.t. c7: 0<=xbb<=8;
+s.t. c8: 0<=xbc<=5;
+
+s.t. c9: 0<=xcd<=6;
+s.t. c10: 0<=xcg <= 3;
+s.t. c11: 0<=xch <=11;
+s.t. c12: 0<=xdc <= 4;
+s.t. c13: 0<=xdg <= 17;
+s.t. c14: 0<=xdh <= 6;
+s.t. c15: 0<=xed<=3;
+s.t. c16: 0<=xee<= 16;
+s.t. c17: 0<=xei <= 13;
+
+s.t. c18: 0<=xfa<=12;
+s.t. c19: 0<=xfd<=4;
+s.t. c20: 0<=xft<=21;
+s.t. c21: 0<=xgh<=4;
+s.t. c22: 0<=xgi<=9;
+s.t. c23: 0<=xgj<=4;
+s.t. c24: 0<=xgt<=3;
+s.t. c25: 0<=xhg<=4;
+s.t. c26: 0<=xhj<=5;
+s.t. c27: 0<=xht<=4;
+
+s.t. c28: 0<=xij<=7;
+s.t. c29: 0<=xit<=9;
+s.t. c30: 0<=xjh<=2;
+s.t. c31: 0<=xjt<=15;
+
+s.t. c32: xsa=xae+xaf;
+s.t. c33: xbb+xsb = xba+xbb+xbc;
+s.t. c34: xsc= xcd+xcg+xch;
+s.t. c35: xcd+xed+xfd= xdh+xdg+xdc;
+s.t. c36: xae+xee = xee+xed+xei;
+s.t. c37: xaf= xfa+xfd+xft;
+s.t. c38: xcg+xhg+xdg = xgh+xgi+xgj+xgt;
+
+s.t. c39: xch+xdh+xgh+xjh = xhg+xhj+xht;
+s.t. c40: xgj+xhj+xij = xjh+xjt;
+
+option solver cplex;
+solve;
+display z;
